@@ -33,7 +33,7 @@ user: any = {};
       return;
     }
     // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
-    fetch('http://localhost:8080/api/applications/', {
+    fetch('http://localhost:5000/api/diabetes/all', {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(this.registerForm.value), // data can be `string` or {object}!
       headers: {
