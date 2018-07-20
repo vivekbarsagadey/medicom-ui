@@ -121,19 +121,18 @@
           <h1 class="text-center"><strong>Prediction</strong></h1>
           <br>
           <section class="leader-table">
-            <table class="table-hover table-striped">
-              <thead>
+            <table class="table table-bordered">
+              <thead class="thead-dark">
               <tr>
-                <th class="col-md-4 ">Name</th>
-                <th class="col-md-4">Score</th>
-                <th class="col-md-4">Pred</th>
+                <th scope="col">Name</th>
+                <th scope="col">Pred</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let pResult of predictionResult">
-                <td class="col-md-4 ">{{pResult.name}}</td>
-                <td class="col-md-4 ">{{pResult.score}}</td>
-                <td class="col-md-4 ">{{pResult.pred}}</td>
+                <td >{{pResult.name}}</td>
+                <td *ngIf="pResult.pred == 0">Diabetes Not Found</td>
+                <td *ngIf="pResult.pred !== 0">Diabetes Found</td>
               </tr>
               </tbody>
             </table>
