@@ -7,11 +7,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./apply.component.css']
 })
 export class ApplyComponent implements OnInit {
+  checkDiabetes: boolean;
+  prediction: boolean;
   registerForm: FormGroup;
   submitted = false;
   sendToServer: any;
-user: any = {};
+  predictionResult: any;
+  user: any = {};
   constructor(private formBuilder: FormBuilder) {
+    this.checkDiabetes = true;
+    this.prediction = false;
   }
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -29,10 +34,9 @@ user: any = {};
   get f() { return this.registerForm.controls; }
   onSubmit() {
     this.submitted = true;
-    if (this.registerForm.invalid) {
+    /*if (this.registerForm.invalid) {
       return;
-    }
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
+    }*/
     fetch('http://localhost:5000/api/diabetes/all', {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(this.registerForm.value), // data can be `string` or {object}!
@@ -42,7 +46,15 @@ user: any = {};
       }
     }).then(res => res.json())
       .catch(error => console.error('Error:', error))
-      .then(response => console.log('Success:', response));
+      .then(response => {
+          this.predictionResult = response;
+          console.log('Success:', response);
+      });
+  }
+  applyForm() {
+    this.checkDiabetes = false;
+    this.prediction = true;
+    this.onSubmit();
   }
   /*openClickSubmit() {
      this.sendToServer = {
