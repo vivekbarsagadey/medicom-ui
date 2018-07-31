@@ -44,7 +44,7 @@ export class ApplyBulkComponent implements OnInit {
       lastName : this.user.lastName,
       pregnancy : Number(data[0]),
       glucose : Number(data[1]),
-      bloodPressure: Number(data[2]),
+      bloodpressure: Number(data[2]),
       skinThickness : Number(data[3]),
       insulin: Number(data[4]),
       bmi : Number(data[5]),
@@ -52,7 +52,6 @@ export class ApplyBulkComponent implements OnInit {
       age : Number(data[7])
     };
     console.log('this.sendToServer', this.sendToServer);
-    console.log(JSON.stringify(this.sendToServer));
     fetch('http://localhost:5000/api/diabetes/all', {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(this.sendToServer), // data can be `string` or {object}!
@@ -68,30 +67,5 @@ export class ApplyBulkComponent implements OnInit {
         console.log('Success:', response);
       });
    this.applyForm();
-    // this.onSubmit();
-    // fetch('http://localhost:5000/api/diabetes/all', {
-    //   method: 'POST', // or 'PUT'
-    //   body: JSON.stringify(this.sendToServer), // data can be `string` or {object}!
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-    //   }
-    // }).then(res => res.json())
-    //   .catch(error => console.error('Error:', error))
-    //   .then(response => {
-    //     this.predictionRes = response;
-    //     console.log('Success:', response);
-    //     console.log('this.sendToServer', this.sendToServer);
-    //   });
-    // fetch('http://localhost:8080/api/applications/', {
-    //   method: 'POST', // or 'PUT'
-    //   body: JSON.stringify(this.sendToServer), // data can be `string` or {object}!
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-    //   }
-    // }).then(res => res.json())
-    //   .catch(error => console.error('Error:', error))
-    //   .then(response => console.log('Success:', response));
   }
 }
