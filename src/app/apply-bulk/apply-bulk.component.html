@@ -1,0 +1,27 @@
+        <br>
+        <h1 class="text-center"><strong>Check Diabetes</strong></h1>
+        <br>
+          <form  class="apply-form">
+            <div class="row">
+
+              <div class="col-md-6 col-md-6">
+                <div  class="form-group" >
+                  <input type="text" class="form-control"  [(ngModel)]="user.firstName" name="firstName"  placeholder="First Name">
+                </div>
+              </div>
+
+              <div class="col-md-6 col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control"  [(ngModel)]="user.lastName" name="lastName"  placeholder="Last Name">
+                </div>
+              </div>
+            </div>
+              <div class="form-group">
+                <input type="text"  class="form-control"  [(ngModel)]="user.applyBulk" name="applyBulk"  placeholder="applyBulk">
+              </div>
+            <br>
+            <div class="text-center">
+              <div class="form-group"> <button class="btn btn-primary btn-round" type="submit"  (click)="openClickSubmit()">SUBMIT</button></div>
+            </div>
+          </form>
+

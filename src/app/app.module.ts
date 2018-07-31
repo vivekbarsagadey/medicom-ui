@@ -11,11 +11,24 @@ import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FeaturesComponent } from './features/features.component';
 import { CustomerSaysComponent } from './customer-says/customer-says.component';
+import { ApplyBulkComponent } from './apply-bulk/apply-bulk.component';
+import { ApplyRouteComponent } from './apply-route/apply-route.component';
+import { PredictionComponent } from './prediction/prediction.component';
 
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'apply', component: ApplyComponent},
+  {path: 'apply', component: ApplyRouteComponent,
+  children: [
+    {path: 'check-diabetes', component: ApplyComponent},
+    {path: 'apply-bulk', component: ApplyBulkComponent},
+    {path: 'prediction', component: PredictionComponent},
+    {
+      path: '',
+      redirectTo: 'check-diabetes',
+      pathMatch: 'full'
+    }
+  ]},
   {
     path: '',
     redirectTo: '/home',
@@ -33,7 +46,10 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     FeaturesComponent,
-    CustomerSaysComponent
+    CustomerSaysComponent,
+    ApplyBulkComponent,
+    ApplyRouteComponent,
+    PredictionComponent,
   ],
   imports: [
     BrowserModule,
