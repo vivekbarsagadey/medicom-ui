@@ -1,7 +1,7 @@
            <br>
            <h1 class="text-center"><strong>Check Diabetes</strong></h1>
           <br>
-          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="apply-form" novalidate 	#applicationForm="ngForm" name="applicationForm">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="apply-form"  name="applicationForm">
             <div class="row">
 
               <div class="col-md-6 col-md-6">
@@ -95,7 +95,7 @@
             <br>
             <div class="text-right"><a href="apply/apply-bulk"><span>Apply in bulk!</span></a></div>
             <div class="text-center">
-              <div class="form-group"> <button class="btn btn-primary btn-round" [disabled]="!applicationForm.form.valid" (click)="applyForm()">SUBMIT</button></div>
+              <div class="form-group"> <button class="btn btn-primary btn-round"  (click)="applyForm()">SUBMIT</button></div>
             </div>
           </form>
 

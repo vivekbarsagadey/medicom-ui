@@ -12,7 +12,7 @@ export class ApplyBulkComponent implements OnInit {
   prediction: boolean;
   sendToServer:  any;
   registerForm: FormGroup;
-  // submitted = false;
+  submitted = false;
   predictionResult: any;
   user: any = {};
   constructor(private formBuilder: FormBuilder, private router: Router) {
@@ -20,6 +20,18 @@ export class ApplyBulkComponent implements OnInit {
     this.prediction = false;
   }
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+     applyBulk: ['', Validators.required]
+    });
+  }
+  get f() { return this.registerForm.controls; }
+  onSubmit() {
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
   }
   applyForm() {
     this.checkDiabetes = false;
