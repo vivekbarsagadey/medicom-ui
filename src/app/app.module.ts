@@ -14,6 +14,8 @@ import { CustomerSaysComponent } from './customer-says/customer-says.component';
 import { ApplyBulkComponent } from './apply-bulk/apply-bulk.component';
 import { ApplyRouteComponent } from './apply-route/apply-route.component';
 import { PredictionComponent } from './prediction/prediction.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
+
 
 
 const appRoutes: Routes = [
@@ -23,6 +25,7 @@ const appRoutes: Routes = [
     {path: 'check-diabetes', component: ApplyComponent},
     {path: 'apply-bulk', component: ApplyBulkComponent},
     {path: 'prediction', component: PredictionComponent},
+    {path: 'upload-file', component: UploadFileComponent},
     {
       path: '',
       redirectTo: 'check-diabetes',
@@ -50,6 +53,7 @@ const appRoutes: Routes = [
     ApplyBulkComponent,
     ApplyRouteComponent,
     PredictionComponent,
+    UploadFileComponent,
   ],
   imports: [
     BrowserModule,

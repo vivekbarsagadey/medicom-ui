@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ApplyBulkComponent implements OnInit {
   checkDiabetes: boolean;
   prediction: boolean;
+  uploadFile: boolean;
   sendToServer:  any;
   registerForm: FormGroup;
   submitted = false;
@@ -35,6 +36,7 @@ export class ApplyBulkComponent implements OnInit {
   }
   applyForm() {
     this.checkDiabetes = false;
+    this.uploadFile = false;
     this.prediction = true;
   }
   openClickSubmit() {

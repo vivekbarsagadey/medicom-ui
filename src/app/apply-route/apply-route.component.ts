@@ -8,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class ApplyRouteComponent implements OnInit {
   checkDiabetes: boolean;
   prediction: boolean;
+  uploadFile: boolean;
   constructor() {
     this.checkDiabetes = true;
     this.prediction = false;
-
+    this.uploadFile = false;
   }
 
   ngOnInit() {
